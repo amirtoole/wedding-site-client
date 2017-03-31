@@ -2,8 +2,9 @@
 
 > Amy and Amir's Wedding Site -- Built Using Material Design for Vue.js
 
-This is the client part for <a href="https://www.github.com/hellofornow/wedding-site-server">wedding-site-server</a>
+![Demo](https://lh3.googleusercontent.com/LheXyHtPNlrsyD_Z_I97wfjxzmCAtyg9QicYRNCRuZ1CGA4AswJiZOgBxeaNYyt-VjudFC9AoEZtn7c=w2488-h1596)
 
+This is the client part for <a href="https://www.github.com/hellofornow/wedding-site-server">wedding-site-server</a>
 
 ## Build Setup
 
