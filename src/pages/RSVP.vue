@@ -90,6 +90,7 @@
       margin-bottom: 30px;
       div:not(:last-child) {
           border-bottom: 1px solid #ddd;
+          padding-bottom: 5px;
         }
     }
   }

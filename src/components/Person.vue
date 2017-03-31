@@ -3,7 +3,7 @@
     <md-layout md-flex class="layout">
       <md-layout md-flex="25" class="personName">{{person.name}}</md-layout>
 
-      <md-layout>
+      <md-layout class="questions">
         <!-- attending -->
         <md-layout md-flex="90">
           <md-input-container v-bind:class="person.attending.length == 0 ? 'md-input-invalid' : ''">
@@ -19,22 +19,21 @@
         <!--menu-->
         <md-layout md-flex="90">
           <md-input-container v-if="person.attending == 'y'" v-bind:class="[person.attending == 'y' && person.dinner.length == 0 ? 'md-input-invalid' : '', 'menu-container']">
-            <label for="menu">Meal selection</label>
+            <label>Main course selection:</label>
             <md-select v-if="person.attending" v-model="person.dinner" name="menu" id="menu" required v-bind:disabled="submitting">
-              <md-option value="child" v-if="person.child" selected>Child meal</md-option>
-              <md-option value="chicken">Chicken</md-option>
-              <md-option value="beef">Beef</md-option>
-              <md-option value="veg">Vegetarian</md-option>
+              <md-option value="child" v-if="person.child" selected>Children's meal (house-made chicken fingers)</md-option>
+              <md-option value="beef">Roasted Alberta AAA Prime Rib of Beef</md-option>
+              <md-option value="fish">Seared Atlantic Salmon Fillet</md-option>
+              <md-option value="veg">Portobello Mushroom Ravioli (Vegetarian)</md-option>
               <md-option value="none">No meal</md-option>
             </md-select>
-            <span class="md-error">Required</span>
           </md-input-container>
         </md-layout>
 
         <!--comment-->
         <md-layout md-flex="90" class="comment-container">
           <md-input-container v-if="(person.attending == 'y' && person.dinner.length > 0) || person.attending == 'n'">
-            <label>Comments</label>
+            <label>Comments<span v-if="person.attending == 'y'"> (allergies, dietary restrictions)</span></label>
             <md-textarea v-model="person.comments" v-bind:disabled="submitting"></md-textarea>
           </md-input-container>
         </md-layout>
@@ -52,6 +51,17 @@
 
   .personName {
     margin-top: 22px;
+    font-size: 1.2rem;
+    @media (max-width: 600px) {
+      flex: 0 1 100% !important;
+      margin-bottom: 6px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .questions {
+      flex-basis: 100%;
+    }
   }
 
   .md-input-container {
